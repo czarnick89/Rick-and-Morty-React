@@ -52,7 +52,8 @@ export default function CharactersPage() {
                 text={`${character.name} is a ${character.gender.toLowerCase()} ${character.species.toLowerCase()} ${character.type.toLowerCase()} of ${character.origin.name.toLowerCase()} origin. Status: ${character.status.toLowerCase()}.`}
                 imageUrl={character.image}
                 buttonText = 'Visit'
-                onButtonClick={() => navigate(`/character/${character.id}`)} ///// change function so this uses dynamic routing to display 
+                onButtonClick={() => navigate(`/character/${character.id}`)} 
+                data = {character}
               />
             </Col>
           ))}
