@@ -2,9 +2,11 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import CustomCard from "../components/CustomCard";
 import { Container, Row, Col } from "react-bootstrap";
+import { useOutletContext, useParams, useNavigate } from "react-router-dom";
 
 export default function CharactersPage() {
   const [data, setData] = useState([]);
+  const navigate = useNavigate();
 
   const randomSet = () => {
     const idSet = new Set();
@@ -34,7 +36,7 @@ export default function CharactersPage() {
     fetchData();
   }, []);
 
-  console.log(data)
+  //console.log(data)
 
   return (
     <>
@@ -50,7 +52,7 @@ export default function CharactersPage() {
                 text={`${character.name} is a ${character.gender.toLowerCase()} ${character.species.toLowerCase()} ${character.type.toLowerCase()} of ${character.origin.name.toLowerCase()} origin. Status: ${character.status.toLowerCase()}.`}
                 imageUrl={character.image}
                 buttonText = 'Visit'
-                onButtonClick={() => window.open(character.url, '_blank')}
+                onButtonClick={() => navigate(`/character/${character.id}`)} ///// change function so this uses dynamic routing to display 
               />
             </Col>
           ))}

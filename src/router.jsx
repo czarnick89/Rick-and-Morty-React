@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import CharactersPage from "./pages/CharactersPage";
 import NotFound from "./pages/NotFound";
+import CharacterDetailsPage from "./pages/CharacterDetailsPage";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: 'characterspage',
         element: <CharactersPage />
+      },
+      {
+        path: 'character/:id',
+        element: <CharacterDetailsPage />
       },
       {
         path: '*',
